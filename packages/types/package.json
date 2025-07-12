@@ -1,8 +1,7 @@
 {
-  "name": "@thmanyah/typescript-config",
+  "name": "@thmanyah/types",
   "version": "0.0.0",
   "private": true,
-  "license": "MIT",
   "publishConfig": {
     "access": "public"
   }
