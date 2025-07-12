@@ -8,7 +8,6 @@ import {
   Param,
 } from "@nestjs/common";
 import { SearchMediaService } from "./search-media.service";
-import { SearchMediaDto } from "./dto/search-media.dto";
 import { CachedSearchResult } from "@thmanyah/types";
 
 @Controller("search-media")
@@ -17,7 +16,7 @@ export class SearchMediaController {
 
   @Get()
   async search(
-    @Query() query: SearchMediaDto
+    @Query() query: { term: string; limit: number; country: string }
   ): Promise<Omit<CachedSearchResult, "id" | "createdAt">[]> {
     if (!query.term) {
       return await this.searchMediaService.getRecentPodcasts();
