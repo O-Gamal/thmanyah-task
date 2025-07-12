@@ -3,7 +3,7 @@ import { formatDistanceToNow } from "date-fns";
 import { ar } from "date-fns/locale";
 import Parser from "rss-parser";
 import Link from "next/link";
-import { RssIcon, LinkIcon, ArrowLeftIcon, HomeIcon } from "lucide-react";
+import { RssIcon, LinkIcon, HomeIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Feed = ({

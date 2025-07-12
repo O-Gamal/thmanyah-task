@@ -3,22 +3,14 @@
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useTransition } from "react";
 import { useDebounce } from "@/lib/hooks/use-debounce";
 import { SearchIcon } from "lucide-react";
 
 export const SearchForm = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [isPending, startTransition] = useTransition();
   const [searchTerm, setSearchTerm] = useState(searchParams.get("term") ?? "");
   const debouncedSearchTerm = useDebounce(searchTerm, 300); // 300ms delay
-
-  React.useEffect(() => {
-    startTransition(() => {
-      updateSearchParams(debouncedSearchTerm);
-    });
-  }, [debouncedSearchTerm]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,15 +23,19 @@ export const SearchForm = () => {
     setSearchTerm(e.target.value);
   };
 
-  const updateSearchParams = (term: string) => {
-    const params = new URLSearchParams(searchParams);
-    if (!term.trim()) {
-      params.delete("term");
-    } else {
-      params.set("term", term);
-    }
-    router.replace(`?${params.toString()}`);
-  };
+  React.useEffect(() => {
+    const updateSearchParams = (term: string) => {
+      const params = new URLSearchParams(searchParams);
+      if (!term.trim()) {
+        params.delete("term");
+      } else {
+        params.set("term", term);
+      }
+      router.replace(`?${params.toString()}`);
+    };
+
+    updateSearchParams(debouncedSearchTerm);
+  }, [debouncedSearchTerm, router, searchParams]);
 
   return (
     <form onSubmit={handleSubmit}>
