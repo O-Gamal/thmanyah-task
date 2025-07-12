@@ -44,7 +44,6 @@ export const drizzleProvider = [
 
       try {
         console.log("Connecting to database pool...");
-        // Test the connection
         const client = await pool.connect();
         await client.query("SELECT NOW()");
         client.release();

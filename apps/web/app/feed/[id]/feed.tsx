@@ -17,6 +17,7 @@ export const Feed = ({
 }) => {
   const latestEpisode = feed.items[0];
   const remainingEpisodes = feed.items.slice(1);
+  console.log(feed);
 
   return (
     <main className="container mx-auto max-w-screen-lg px-4 min-h-screen pt-10">
@@ -87,6 +88,7 @@ export const Feed = ({
                   src={latestEpisode.itunes?.image || ""}
                   alt={latestEpisode.title || ""}
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
               <div className="flex-1">
@@ -154,6 +156,9 @@ export const Feed = ({
                     src={episode.itunes?.image || ""}
                     alt={episode.title || ""}
                     className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                    width={10}
+                    height={10}
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-0 p-4 text-white">
