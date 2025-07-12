@@ -102,111 +102,17 @@ pnpm install
 
 # Set up environment variables
 cp apps/api/.env.example apps/api/.env
-cp apps/web/.env.example apps/web/.env
+cp apps/web/.env.local.example apps/web/.env
 
 # Run database migrations
-cd apps/api && pnpm db:push
+cd apps/api && pnpm db:generate && pnpm db:migrate
 
 # Start development servers
 pnpm dev
 ```
 
-### Environment Variables
-
-**Backend (`apps/api/.env`):**
-
-```env
-DATABASE_URL=postgresql://username:password@localhost:5432/thmanyah_db
-```
-
-**Frontend (`apps/web/.env.local`):**
-
-```env
-NEXT_PUBLIC_API_URL=http://localhost:3001
-```
-
-## 🌐 API Endpoints
-
-### Search Podcasts
-
-```http
-GET /api/search-media?query=فنجان
-```
-
-**Response:**
-
-```json
-{
-  "results": [
-    {
-      "id": 1,
-      "title": "فنجان مع أحمد الشقيري",
-      "description": "برنامج فنجان...",
-      "feedUrl": "https://...",
-      "imageUrl": "https://...",
-      "creator": "أحمد الشقيري"
-    }
-  ]
-}
-```
-
-### Get Podcast Details
-
-```http
-GET /api/podcasts/:id
-```
-
-## 🎨 UI/UX Highlights
-
-- **Arabic-First Design**: RTL layout with proper Arabic typography
-- **Modern Aesthetics**: Clean, minimalist design inspired by modern podcast platforms
-- **Accessibility**: Keyboard navigation and screen reader support
-- **Performance**: Optimized images and lazy loading for smooth scrolling
-
-## 🔮 Future Enhancements
-
-### Technical Improvements
-
-- [ ] Implement Redis caching for API responses
-- [ ] Add full-text search capabilities
-- [ ] Implement podcast subscription features
-- [ ] Add audio player integration
-- [ ] Implement user authentication and favorites
-
-### Performance Optimizations
-
-- [ ] Add service worker for offline functionality
-- [ ] Implement image CDN integration
-- [ ] Add advanced caching strategies
-- [ ] Optimize bundle sizes with code splitting
-
-## 📊 Performance Metrics
-
-- **Lighthouse Score**: 95+ (Performance, Accessibility, Best Practices)
-- **Image Loading**: 70% faster with lazy loading implementation
-- **Database Queries**: Optimized to <100ms average response time
-- **Bundle Size**: Kept under 200KB for optimal loading
-
-## 🤝 Professional Reflection
-
-This project showcases my ability to:
-
-- **Research & Analysis**: Understanding requirements and choosing appropriate technologies
-- **Problem Solving**: Identifying performance bottlenecks and implementing solutions
-- **Full-Stack Development**: Building cohesive frontend and backend systems
-- **Code Quality**: Writing maintainable, scalable code with proper architecture
-- **User Experience**: Creating intuitive, performant interfaces
-
-The most challenging aspect was optimizing image loading performance while maintaining a smooth user experience. The solution involved implementing custom lazy loading, priority loading strategies, and graceful error handling.
-
-## 📞 Contact
-
-Built with ❤️ by [Your Name]
-
-- **Email**: your.email@example.com
-- **LinkedIn**: your-linkedin-profile
-- **GitHub**: your-github-profile
-
 ---
+
+Built with ❤️ by Omar for Thmanyah
 
 **Note**: This project was built as a technical assessment for Thmanyah, demonstrating full-stack development capabilities and problem-solving skills in a real-world scenario.
