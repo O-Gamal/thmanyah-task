@@ -13,6 +13,7 @@
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
     "@tailwindcss/postcss": "^4.1.11",
+    "@vercel/analytics": "^1.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "data-fns": "^1.1.0",
@@ -28,8 +29,8 @@
   },
   "devDependencies": {
     "@thmanyah/eslint-config": "workspace:*",
-    "@thmanyah/typescript-config": "workspace:*",
     "@thmanyah/types": "workspace:*",
+    "@thmanyah/typescript-config": "workspace:*",
     "@types/node": "^22.15.3",
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.1",

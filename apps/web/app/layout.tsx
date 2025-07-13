@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
@@ -23,6 +24,7 @@ export default function RootLayout({
       >
         {children}
       </body>
+      <Analytics />
     </html>
   );
 }
